@@ -1,8 +1,6 @@
 // first create the player
 
 //then we should add the controls for the arrow keys to move the player
-
-
 //add the computer/enemy player
 
 //add the computer movements.
@@ -15,7 +13,7 @@
 let myGamePiece, myObstacle
 
 function startGame() {
-    myGamePiece = new Component(125, 125, "assets/mario.png", 10, 120, "image")
+    myGamePiece = new Component(15, 15, "assets/mario.png", 5, 60, "image")
     myObstacle = new Component(10, 10, "red", 100, 40)
     myGameArea.start()
 }
