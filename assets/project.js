@@ -1,3 +1,7 @@
+$(document).ready(function(){
+
+
+
 // first create the player
 
 //then we should add the controls for the arrow keys to move the player
@@ -62,12 +66,12 @@ $(".btn").mouseleave(function () {
 */
 
 var myGameArea = {
-    canvas: document.getElementsByTagName("canvas")[0],
+    canvas: document.getElementById("myCanvas"),
     start: function () {
         this.canvas.width = 600
         this.canvas.height = 450
         this.context = this.canvas.getContext("2d")
-        document.body.insertBefore(this.canvas, document.body.childNodes[0])
+        // document.body.insertBefore(this.canvas, document.body.childNodes[0])
         this.frameNo = 0
         this.interval = setInterval(updateGameArea, 20)
     },
@@ -180,3 +184,4 @@ else if (x===0){
 
 
 
+});
