@@ -1,0 +1,11 @@
+#myCanvas {
+    margin: auto;
+    width: 50%;
+    background-color: whitesmoke;
+    border: chocolate, 20px;
+    padding: 10px;
+}
+
+.border {
+    background-color: blue;
+}
