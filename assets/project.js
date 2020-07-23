@@ -16,14 +16,18 @@ $(document).ready(function () {
     //respawn if lives is greater than zero.
     //If lives === 0, then game over.
 
-    let myGamePiece, myObstacle
+    let myGamePiece, myObstacle, lives
 
     function startGame() {
         myGamePiece = new Component(50, 50, "assets/mario.png", 10, 200, "image")
         myObstacle = new Component(20, 20, "red", 510, 230)
+        lives=3
         myGameArea.start()
     }
-
+    function fadeOut(imageNumber){
+        console.log(imageNumber)
+        $("#lives-" + imageNumber).animate({opacity: "0.10"});
+    }
     $(".up-button").mousedown("click", function () {
         moveup()
     })
@@ -103,9 +107,13 @@ $(document).ready(function () {
 
     function updateGameArea() {
         if (myGamePiece.crashWith(myObstacle)) {
-            myGameArea.stop()
+            
+            // fadeOut(lives)
+            // lives--
+            // myGameArea.stop()
             /* document.getElementById("notifications").textContent = "Collision!!!"*/
-            alert("collision!!");
+            // alert("collision!!");
+            
         } else {
             myGameArea.clear()
             myGamePiece.newPos()
