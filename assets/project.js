@@ -40,6 +40,78 @@ $(document).ready(function () {
     $(".btn").mouseup(function () {
         clearmove()
     })
+    //i used debugger to figure out which attributes i can work with on
+    //the myGamePiece
+    //console.log(`x: ${myGamePiece.x}, y: ${myGamePiece.y}`) - gives the
+    //current x,y position
+    //===========================
+    //I noticed that when you move the player around, it can move out of
+    //the canvas, so that's what the preventOutOfBounds function is for.
+    function preventOutOfBounds(rect) {
+        //there needs to be 2 conditionals otherwise we would be able to
+        //move out of bounds if we move use arrow buttons to move left/right and
+        //up/down at the same time
+        //left and right
+        if (myGamePiece.x < 0) {
+            myGamePiece.speedX = 0
+        }
+        else if (myGamePiece.x > rect.width) {
+            myGamePiece.x = rect.width
+        }
+        //up and down
+        if (myGamePiece.y < 0) {
+            myGamePiece.y = 0
+        }
+        else if (myGamePiece.y > rect.height) {
+            myGamePiece.y = rect.height
+        }
+    }
+
+    // i looked at this solution for reference to make the function for
+    //having the obstacle chase the player
+    //https://www.reddit.com/r/javascript/comments/2pty1w/how_do_i_make_an_object_chase_an_other_object/
+    //speed variable changes the speed of the obstacle
+
+    let speed = 2
+    function chasePlayer() {
+        var dx = myGamePiece.x - myObstacle.x;
+        var dy = myGamePiece.y - myObstacle.y;
+        // normalize (= direction vector)
+        // (a direction vector has a length of 1)
+        var length = Math.sqrt(dx * dx + dy * dy);
+        if (length) {
+            dx /= length;
+            dy /= length;
+        }
+
+        // move
+        // delta is the elapsed time in seconds
+        // SPEED is the speed in units per second (UPS)
+        myObstacle.x += dx * speed;
+        myObstacle.y += dy * speed;
+    }
+
+    //so i placed the two functionse chasePlayer and preventOutOfBounds in
+    //the updateGameArea function since it is constantly updating
+    function updateGameArea() {
+        //this rect gives us the bounds of the game area canvas, and we
+        //can see how big it is with rect.width, rect.height respectively
+        var rect = myGameArea.canvas.getBoundingClientRect();
+        preventOutOfBounds(rect)
+        chasePlayer()
+
+        if (myGamePiece.crashWith(myObstacle)) {
+            myGameArea.stop()
+            document.getElementById("notifications").textContent = "Collision!!!"
+        } else {
+            myGameArea.clear()
+            myGamePiece.newPos()
+            myGamePiece.update()
+            myObstacle.newPos()
+            myObstacle.update()
+        }
+
+    }
 
     var myGameArea = {
         canvas: document.getElementById("myCanvas"),
