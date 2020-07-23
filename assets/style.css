@@ -1,11 +1,14 @@
 #myCanvas {
     margin: auto;
     width: 50%;
-    background-color: whitesmoke;
-    border: chocolate, 20px;
+    background-color: burlywood;
     padding: 10px;
 }
 
-.border {
-    background-color: blue;
-}
+p {
+    text-align: center
+  }
+
+  h1 {
+    text-align: center
+  }
