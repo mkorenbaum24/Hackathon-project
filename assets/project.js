@@ -15,6 +15,7 @@ alert("Do you want to start the game")
     
     //respawn if lives is greater than zero.
     //If lives === 0, then game over.
+
     
     let myGamePiece, myObstacle
     
@@ -25,6 +26,21 @@ alert("Do you want to start the game")
     myGameArea.start()
     }
     
+
+
+    let myGamePiece, myObstacle, lives
+
+    function startGame() {
+        myGamePiece = new Component(50, 50, "assets/mario.png", 10, 200, "image")
+        myObstacle = new Component(20, 20, "red", 510, 230)
+        lives=3
+        myGameArea.start()
+    }
+    function fadeOut(imageNumber){
+        console.log(imageNumber)
+        $("#lives-" + imageNumber).animate({opacity: "0.10"});
+    }
+
     $(".up-button").mousedown("click", function () {
     moveup()
     })
@@ -157,7 +173,7 @@ alert("Do you want to start the game")
     //the myGamePiece
     //console.log(`x: ${myGamePiece.x}, y: ${myGamePiece.y}`) - gives the
     //current x,y position
-    //===========================
+ 
     //I noticed that when you move the player around, it can move out of
     //the canvas, so that's what the preventOutOfBounds function is for.
     function preventOutOfBounds(rect) {
@@ -204,6 +220,7 @@ alert("Do you want to start the game")
     //the updateGameArea function since it is constantly updating
     
     function updateGameArea() {
+
     //this rect gives us the bounds of the game area canvas, and we
     //can see how big it is with rect.width, rect.height respectively
     var rect = myGameArea.canvas.getBoundingClientRect();
@@ -220,6 +237,24 @@ alert("Do you want to start the game")
     myGamePiece.update()
     myObstacle.newPos()
     myObstacle.update()
+
+        if (myGamePiece.crashWith(myObstacle)) {
+            
+            // fadeOut(lives)
+            // lives--
+            // myGameArea.stop()
+            /* document.getElementById("notifications").textContent = "Collision!!!"*/
+            // alert("collision!!");
+            
+        } else {
+            myGameArea.clear()
+            myGamePiece.newPos()
+            myGamePiece.update()
+            myObstacle.newPos()
+            myObstacle.update()
+        }
+
+
     }
     
     }
