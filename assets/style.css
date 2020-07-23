@@ -1,14 +1,13 @@
 #myCanvas {
     margin: auto;
     width: 50%;
-    background-color: burlywood;
+    background-color: cornsilk;
     padding: 10px;
+    border: 50px, 80px, 80px, 50px;
 }
-
 p {
     text-align: center
   }
-
   h1 {
     text-align: center
   }
