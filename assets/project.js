@@ -1,7 +1,6 @@
 //Create the dot
 //Make the dot appear anywhere in the canvas
 //If dot consumed, create new one and destroy first one.
-
 $(document).ready(function () {
     alert("Do you want to start the Game?")
     // first create the player
