@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+alert("test")
+
+
+=======
+>>>>>>> aa9086bb3d93424e7c4ea0a6604c42df550e0543
 $(document).ready(function () {
 
     alert("Do you want to start the game")
@@ -17,7 +23,10 @@ $(document).ready(function () {
         //If lives === 0, then game over.
     
         
+<<<<<<< HEAD
+=======
         let myGamePiece, myObstacle
+>>>>>>> aa9086bb3d93424e7c4ea0a6604c42df550e0543
         
         function startGame() {
         myGamePiece = new Component(50, 50, "assets/mario.png", 10,
