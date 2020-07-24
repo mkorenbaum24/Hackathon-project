@@ -5,10 +5,15 @@
     padding: 10px;
 }
 
-p {
-    text-align: center
-  }
+p{
+    text-align: center;
+}
 
-  h1 {
-    text-align: center
-  }
+h1 {
+  text-align: center;
+}
+
+#score {
+  padding: 20px;
+  font-size: 30px;
+}
