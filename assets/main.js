@@ -1,6 +1,7 @@
 //Create the dot
 //Make the dot appear anywhere in the canvas
 //If dot consumed, create new one and destroy first one.
+
 $(document).ready(function () {
     alert("Do you want to start the Game?")
     // first create the player
@@ -133,27 +134,26 @@ $(document).ready(function () {
     //the myGamePiece
     //console.log(`x: ${myGamePiece.x}, y: ${myGamePiece.y}`) - gives the
     //current x,y position
- 
+
     //I noticed that when you move the player around, it can move out of
     //the canvas, so that's what the preventOutOfBounds function is for.
-   
-function preventOutOfBounds(rect) {
 
-if (myGamePiece.x < 0) {
-    myGamePiece.x = 0
-}
-else if (myGamePiece.x > canvasX - edgeLength) {
-    myGamePiece.x = canvasX - edgeLength
-}
-//up and down
-if (myGamePiece.y < 0) {
-    myGamePiece.y = 0
-}
-else if (myGamePiece.y > canvasY - edgeLength) {
-    myGamePiece.y = canvasY - edgeLength
-}
-}
-
+    function preventOutOfBounds(rect) {
+        console.log(myGamePiece.x, myGamePiece.y)
+        if (myGamePiece.x < 0) {
+            myGamePiece.x = 0
+        }
+        if (myGamePiece.x > canvasX - 50) {
+            myGamePiece.x = canvasX - 50
+            //up and down
+        }
+        if (myGamePiece.y < 0) {
+            myGamePiece.y = 0
+        }
+        if (myGamePiece.y > canvasY - 50) {
+            myGamePiece.y = canvasY - 50
+        }
+    }
     let speed = 2
     let playerSpeed = 3
     function chasePlayer() {
