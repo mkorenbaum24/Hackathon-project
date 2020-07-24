@@ -42,6 +42,7 @@ $(document).ready(function () {
         targetId.animate({ opacity: "0.10" })
     }
 
+
     $(".up-button").mousedown("click", function () {
         moveup()
     })
@@ -137,7 +138,7 @@ $(document).ready(function () {
     //the myGamePiece
     //console.log(`x: ${myGamePiece.x}, y: ${myGamePiece.y}`) - gives the
     //current x,y position
-    //===========================
+ 
     //I noticed that when you move the player around, it can move out of
     //the canvas, so that's what the preventOutOfBounds function is for.
    
@@ -182,6 +183,7 @@ else if (myGamePiece.y > canvasY - edgeLength) {
     //the updateGameArea function since it is constantly updating
 
     function updateGameArea() {
+
         //this rect gives us the bounds of the game area canvas, and we
         //can see how big it is with rect.width, rect.height respectively
         var rect = myGameArea.canvas.getBoundingClientRect();
